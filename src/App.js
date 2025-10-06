@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import Welcome from "./pages/Welcome"
 import Register from "./pages/HomeRegister";
 import Login from "./pages/Login";
@@ -17,23 +17,25 @@ const App = () => {
   };
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/welcome" />} />
-      <Route path="/welcome" element={<Welcome />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/front" element={<Front />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/verify-otp" element={<VerifyOTP />} />
-      <Route
-        path="/home"
-        element={
-          <PrivateRoute>
-            <Home />
-          </PrivateRoute>
-        }
-      />
-    </Routes>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/welcome" />} />
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/front" element={<Front />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-otp" element={<VerifyOTP />} />
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </HashRouter>
   );
 };
 
