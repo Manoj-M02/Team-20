@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate,HashRouter } from "react-router-dom";
 import Welcome from "./pages/Welcome"
 import Register from "./pages/HomeRegister";
 import Login from "./pages/Login";
@@ -17,6 +17,7 @@ const App = () => {
   };
 
   return (
+    <HashRouter>
     <Routes>
       <Route path="/" element={<Navigate to="/welcome" />} />
       <Route path="/welcome" element={<Welcome />} />
@@ -34,7 +35,9 @@ const App = () => {
         }
       />
     </Routes>
+  </HashRouter>
   );
 };
 
 export default App;
+
